@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="programDuration"
+            type="com.example.fleetmanagement.data.model.ProgramDuration" />
+
+        <variable
+            name="language"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+
+            android:id="@+id/radioButtonPricing"
+            style="@style/wrapContent.radioButton"
+            android:text="@{language.equals(@string/ar) ? programDuration.name_ar : programDuration.name_en}" />
+    </LinearLayout>
+
+</layout>

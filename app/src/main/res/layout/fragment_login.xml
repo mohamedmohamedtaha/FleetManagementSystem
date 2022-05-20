@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.authentication.fragment.LoginFragment">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/LogoImage"
+                style="@style/largeLogo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutEmail"
+                style="@style/matchAndWrapContent.textInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/LogoImage">
+                <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/editTextEmail"
+                    style="@style/matchAndWrapContent.editText"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/LogoImage" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutPassword"
+                style="@style/matchAndWrapContent.textInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmail">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPassword"
+                    style="@style/matchAndWrapContent.editText"
+                    android:hint="@string/password"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkboxPassword"
+                style="@style/checkBoxPassword"
+                app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutPassword"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayoutPassword"
+                app:layout_constraintTop_toTopOf="@+id/textInputLayoutPassword" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/loginButton"
+                style="@style/button_style"
+                android:text="@string/login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewForgetPassword" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewForgetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayoutPassword"
+                android:text="@string/forget_password"
+                android:textColor="@color/blue_primary"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewCreateAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            app:layout_constraintTop_toBottomOf="@+id/loginButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/create_account"
+            android:fontFamily="monospace"
+            android:textColor="@color/blue_primary"
+            android:textSize="@dimen/_18ssp"
+            android:gravity="center"
+            android:drawableEnd="@drawable/ic_arrow_forward"
+            />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>

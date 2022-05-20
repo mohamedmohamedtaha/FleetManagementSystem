@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.home.fragment.ChooseProgramFragment">
+    <data>
+        <variable
+            name="activityViewModel"
+            type="com.example.fleetmanagement.ui.home.viewmodel.LoginViewModel" />
+
+    </data>
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                style="@style/zeroAndWrapContent.StyleHeaderTitle"
+                android:text="@string/title_training_type"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowLeft"
+                style="@style/wrapContent.StyleLeftArrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+            <TextView
+                android:id="@+id/textViewTrainingType"
+                style="@style/wrapContent.StyleTitleText"
+                android:text="@string/training_type"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewArrowLeft"
+                app:layout_constraintStart_toEndOf="@+id/imageViewArrowLeft"
+                app:layout_constraintTop_toTopOf="@+id/imageViewArrowLeft" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowRight"
+                style="@style/wrapContent.StyleRightArrow"
+                app:layout_constraintStart_toEndOf="@+id/textViewTrainingType"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewTrainingType"
+                style="@style/wrapContent.RecyclerViewHorizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTrainingType"
+                tools:listitem="@layout/row_training_type" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowLeft1"
+                style="@style/wrapContent.StyleLeftArrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewTrainingType" />
+
+            <TextView
+                android:id="@+id/textViewProgramType"
+                style="@style/wrapContent.StyleTitleText"
+                android:text="@string/program_type"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewArrowLeft1"
+                app:layout_constraintStart_toEndOf="@+id/imageViewArrowLeft1"
+                app:layout_constraintTop_toTopOf="@+id/imageViewArrowLeft1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowRight1"
+                style="@style/wrapContent.StyleRightArrow"
+                app:layout_constraintStart_toEndOf="@+id/textViewProgramType"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewTrainingType" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewProgramType"
+                style="@style/wrapContent.RecyclerViewHorizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewProgramType"
+                tools:listitem="@layout/row_training_type" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowLeft2"
+                style="@style/wrapContent.StyleLeftArrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewProgramType" />
+
+            <TextView
+                android:id="@+id/textViewProgramDuration"
+                style="@style/wrapContent.StyleTitleText"
+                android:text="@string/program_duration"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewArrowLeft2"
+                app:layout_constraintStart_toEndOf="@+id/imageViewArrowLeft2"
+                app:layout_constraintTop_toTopOf="@+id/imageViewArrowLeft2" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowRight2"
+                style="@style/wrapContent.StyleRightArrow"
+                app:layout_constraintStart_toEndOf="@+id/textViewProgramDuration"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewProgramType" />
+
+<!--            <RadioGroup-->
+<!--                android:id="@+id/radioGroupProgramDuration"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/_18sdp"-->
+<!--                android:layout_marginTop="@dimen/_18sdp"-->
+<!--                android:checkedButton="@id/radioButtonThreeMonth"-->
+<!--                android:orientation="vertical"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/textViewProgramDuration">-->
+
+<!--                <com.google.android.material.radiobutton.MaterialRadioButton-->
+<!--                    android:id="@+id/radioButtonThreeMonth"-->
+<!--                    style="@style/wrapContent.radioButton"-->
+<!--                    android:text="@string/three_months" />-->
+
+<!--                <com.google.android.material.radiobutton.MaterialRadioButton-->
+<!--                    android:id="@+id/radioButtonSixMonth"-->
+<!--                    style="@style/wrapContent.radioButton"-->
+<!--                    android:text="@string/six_months" />-->
+<!--&lt;!&ndash;                android:onClick="@{()-> activityViewModel.programDuration.data[0].name_ar.equals(@string/six_months)}"&ndash;&gt;-->
+
+<!--                <com.google.android.material.radiobutton.MaterialRadioButton-->
+<!--                    android:id="@+id/radioButtonNineMonth"-->
+<!--                    style="@style/wrapContent.radioButton"-->
+<!--                    android:text="@string/nine_month" />-->
+
+<!--                <com.google.android.material.radiobutton.MaterialRadioButton-->
+<!--                    android:id="@+id/radioButtonOneYear"-->
+<!--                    style="@style/wrapContent.radioButton"-->
+<!--                    android:text="@string/one_year" />-->
+<!--            </RadioGroup>-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="@dimen/_20sdp"
+                android:id="@+id/recyclerViewPricing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewProgramDuration"
+                app:layout_constraintBottom_toTopOf="@id/buttonNext"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonNext"
+                style="@style/button_style"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:text="@string/next"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewPricing" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.fragment.EnterInformationFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                style="@style/zeroAndWrapContent.StyleHeaderTitle"
+                android:text="@string/title_training_type"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowLeft"
+                style="@style/wrapContent.StyleLeftArrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+            <TextView
+                android:id="@+id/textViewTrainingType"
+                style="@style/wrapContent.StyleTitleText"
+                android:text="@string/body_info"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewArrowLeft"
+                app:layout_constraintStart_toEndOf="@+id/imageViewArrowLeft"
+                app:layout_constraintTop_toTopOf="@+id/imageViewArrowLeft" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowRight"
+                style="@style/wrapContent.StyleRightArrow"
+                app:layout_constraintStart_toEndOf="@+id/textViewTrainingType"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+            <!--                <com.google.android.material.textfield.TextInputLayout-->
+            <!--                    android:id="@+id/textInputLayoutDateOfBirth"-->
+            <!--                    style="@style/matchAndWrapContent.textInputLayout"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/imageViewArrowLeft">-->
+            <!--                    <com.google.android.material.textfield.TextInputEditText-->
+            <!--                        style="@style/matchAndWrapContent.editText"-->
+            <!--                        android:hint="@string/date_of_birth"-->
+            <!--                        android:focusable="false"-->
+            <!--                        android:focusableInTouchMode="false"-->
+            <!--                        />-->
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/textInputLayoutDateOfBirth"
+                style="@style/matchAndWrapContent.editText.dialogDateOfBirth"
+                android:hint="@string/date_of_birth"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewArrowLeft" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutWeight"
+                style="@style/zeroAndWrapContent.textInputLayout"
+                app:layout_constraintEnd_toStartOf="@id/textInputLayoutHeight"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutDateOfBirth">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/matchAndWrapContent.editText"
+                    android:hint="@string/weight"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutHeight"
+                style="@style/zeroAndWrapContent.textInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/textInputLayoutWeight"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutDateOfBirth">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/matchAndWrapContent.editText"
+                    android:hint="@string/height"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewDailyActivity"
+                style="@style/matchAndWrapContent.editText.dialogDateOfBirth.dialogText"
+                android:hint="@string/daily_activity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutHeight"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutBodyFat"
+                style="@style/zeroAndWrapContent.textInputLayout"
+                app:layout_constraintEnd_toStartOf="@id/textInputLayoutBodyMuscle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDailyActivity">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/matchAndWrapContent.editText"
+                    android:hint="@string/body_fat"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutBodyMuscle"
+                style="@style/zeroAndWrapContent.textInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayoutBodyFat"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDailyActivity">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/matchAndWrapContent.editText"
+                    android:hint="@string/body_muscle"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutBodyWater"
+                style="@style/zeroAndWrapContent.textInputLayout"
+                app:layout_constraintEnd_toStartOf="@id/textInputLayoutBodyBMI"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutBodyMuscle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/matchAndWrapContent.editText"
+                    android:hint="@string/body_water"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutBodyBMI"
+                style="@style/zeroAndWrapContent.textInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/textInputLayoutBodyWater"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutBodyMuscle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/matchAndWrapContent.editText"
+                    android:hint="@string/bmi"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowLeft1"
+                style="@style/wrapContent.StyleLeftArrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutBodyBMI" />
+
+            <TextView
+                android:id="@+id/textViewLocation"
+                style="@style/wrapContent.StyleTitleText"
+                android:text="@string/location"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewArrowLeft1"
+                app:layout_constraintStart_toEndOf="@+id/imageViewArrowLeft1"
+                app:layout_constraintTop_toTopOf="@+id/imageViewArrowLeft1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowRight1"
+                style="@style/wrapContent.StyleRightArrow"
+                app:layout_constraintStart_toEndOf="@+id/textViewLocation"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutBodyBMI" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/editTextNationality"
+                style="@style/matchAndWrapContent.editText.dialogDateOfBirth.dialogText"
+                android:hint="@string/select_nationality"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLocation" />
+
+<!--            <com.hbb20.CountryPickerView-->
+<!--                android:id="@+id/countryPickerViewNationality"-->
+<!--                android:layout_width="match_parent"-->
+<!--                app:cp_initialSelectionMode="autoDetectCounty"-->
+<!--                app:cpDialog_showFullScreen="true"-->
+<!--                style="@style/matchAndWrapContent.CountryPickerView"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/editTextNationality" />-->
+
+<!--            <com.hbb20.CountryPickerView-->
+<!--                android:id="@+id/countryPickerView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:textDirection="ltr"-->
+<!--                style="@style/matchAndWrapContent.CountryPickerView"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/countryPickerViewNationality" />-->
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/textInputLayoutCity"-->
+<!--                style="@style/matchAndWrapContent.textInputLayout"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/countryPickerView">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    style="@style/matchAndWrapContent.editText"-->
+<!--                    android:hint="@string/city"-->
+<!--                    android:inputType="number" />-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowLeft2"
+                style="@style/wrapContent.StyleLeftArrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNationality" />
+
+            <TextView
+                android:id="@+id/textViewMedicalInfo"
+                style="@style/wrapContent.StyleTitleText"
+                android:text="@string/medical_info"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewArrowLeft2"
+                app:layout_constraintStart_toEndOf="@+id/imageViewArrowLeft2"
+                app:layout_constraintTop_toTopOf="@+id/imageViewArrowLeft2" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowRight2"
+                style="@style/wrapContent.StyleRightArrow"
+                app:layout_constraintStart_toEndOf="@+id/textViewMedicalInfo"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNationality" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewDisease"
+                style="@style/matchAndWrapContent.editText.dialogDateOfBirth.dialogText"
+                android:hint="@string/select_disease"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewMedicalInfo"
+                />
+
+<!--            <com.skydoves.powerspinner.PowerSpinnerView-->
+<!--                android:id="@+id/powerSpinnerViewDisease"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/_18sdp"-->
+<!--                android:alpha="0.6"-->
+<!--                android:background="@color/light_gray"-->
+<!--                android:elevation="@dimen/_10sdp"-->
+<!--                android:hint="@string/select_disease"-->
+<!--                android:padding="@dimen/_15sdp"-->
+<!--                android:textColorHint="@android:color/white"-->
+<!--                android:textSize="@dimen/_15ssp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/textViewMedicalInfo"-->
+<!--                app:spinner_arrow_gravity="end"-->
+<!--                app:spinner_divider_color="@color/red_primary"-->
+<!--                app:spinner_divider_show="true"-->
+<!--                app:spinner_divider_size="@dimen/_1sdp"-->
+<!--                app:spinner_item_array="@array/type_of_disease"-->
+<!--                app:spinner_popup_animation="bounce" />-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutMedicalHistory"
+                style="@style/matchAndWrapContent.textInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDisease">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/matchAndWrapContent.editText"
+                    android:hint="@string/medical_history"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowLeft3"
+                style="@style/wrapContent.StyleLeftArrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMedicalHistory" />
+
+            <TextView
+                android:id="@+id/textViewMedicalJobAndActivity"
+                style="@style/wrapContent.StyleTitleText"
+                android:text="@string/current_job"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewArrowLeft3"
+                app:layout_constraintStart_toEndOf="@+id/imageViewArrowLeft3"
+                app:layout_constraintTop_toTopOf="@+id/imageViewArrowLeft3" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewArrowRight3"
+                style="@style/wrapContent.StyleRightArrow"
+                app:layout_constraintStart_toEndOf="@+id/textViewMedicalInfo"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMedicalHistory" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonPay"
+                style="@style/button_style"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:text="@string/pay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewMedicalJobAndActivity" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>

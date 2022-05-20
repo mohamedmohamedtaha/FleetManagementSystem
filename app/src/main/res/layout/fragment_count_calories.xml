@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.fragment.CountCaloriesFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                style="@style/zeroAndWrapContent.StyleHeaderTitle"
+                android:text="@string/title_count_calories"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/textInputLayoutDateOfBirth"
+                style="@style/matchAndWrapContent.editText.dialogDateOfBirth"
+                android:hint="@string/date_of_birth"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutWeight"
+                style="@style/matchAndWrapContent.textInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDateOfBirth">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/matchAndWrapContent.editText"
+                    android:hint="@string/weight"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutHeight"
+                style="@style/matchAndWrapContent.textInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWeight">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/matchAndWrapContent.editText"
+                    android:hint="@string/height"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewDailyActivity"
+                style="@style/matchAndWrapContent.editText.dialogDateOfBirth.dialogText"
+                android:hint="@string/daily_activity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutHeight"
+                />
+            <RadioGroup
+                android:id="@+id/radioGroupGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:checkedButton="@id/radioButtonMale"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDailyActivity">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioButtonMale"
+                    style="@style/wrapContent.radioButton"
+                    android:text="@string/male" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioButtonFemale"
+                    style="@style/wrapContent.radioButton"
+                    android:text="@string/female" />
+            </RadioGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonPay"
+                style="@style/button_style"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:text="@string/count"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupGender" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
