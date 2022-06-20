@@ -22,6 +22,7 @@ import com.example.fleetmanagement.utils.Formatter
 import com.example.fleetmanagement.utils.Formatter.format
 import com.example.fleetmanagement.R
 import com.example.fleetmanagement.databinding.FragmentEnterInformationBinding
+import com.example.fleetmanagement.utils.showSnackBar
 import com.mukesh.countrypicker.Country
 import com.mukesh.countrypicker.CountryPicker
 import com.mukesh.countrypicker.listeners.OnCountryPickerListener
@@ -37,64 +38,6 @@ class EnterInformationFragment : BaseFragment(), View.OnClickListener, OnCountry
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         language = dataStoreViewModel.getLanguage().toString()
-
-        viewModel.diseases.observe(this) {
-            when (it) {
-                is NetworkResult.Success -> {
-                    hideProgressBar()
-                    if (it.data != null) {
-                        disease = it.data as ArrayList<Disease>
-                    }
-
-                }
-                is NetworkResult.Error -> {
-                    hideProgressBar()
-                    showSnackBar(it.message.toString())
-
-                }
-                is NetworkResult.Loading -> {
-                    showProgressBar()
-
-                }
-            }
-        }
-
-        viewModel.dailyActivities.observe(this) {
-            when (it) {
-                is NetworkResult.Success -> {
-                    if (it.data != null) {
-                        dailyActivity = it.data as ArrayList<DailyActivities>
-                    }
-
-                }
-                is NetworkResult.Error -> {
-
-                }
-                is NetworkResult.Loading -> {
-
-                }
-            }
-        }
-        activityViewModel.subscribe.observe(this) {
-            when (it) {
-                is NetworkResult.Success -> {
-                    hideProgressBar()
-                    if (it.data != null) {
-                        showSnackBar(it.message.toString())
-                    }
-
-                }
-                is NetworkResult.Error -> {
-                    hideProgressBar()
-                    showSnackBar(it.message.toString())
-                }
-                is NetworkResult.Loading -> {
-                    showProgressBar()
-
-                }
-            }
-        }
-
     }
 
     override fun onCreateView(
@@ -108,8 +51,6 @@ class EnterInformationFragment : BaseFragment(), View.OnClickListener, OnCountry
         binding.editTextNationality.setOnClickListener(this)
         binding.textViewDisease.setOnClickListener(this)
         binding.textViewDailyActivity.setOnClickListener(this)
-        viewModel.getDiseases()
-        viewModel.getDailyActivities()
         return binding.root
     }
 
@@ -189,8 +130,6 @@ class EnterInformationFragment : BaseFragment(), View.OnClickListener, OnCountry
                 activityViewModel.parameters.disease = binding.textViewDailyActivity.text.toString()
                 activityViewModel.parameters.medicalHistory =
                     binding.textInputLayoutMedicalHistory.editText?.text.toString()
-
-                activityViewModel.subscribe()
             }
             R.id.textInputLayoutDateOfBirth -> {
                 selectBirthOfDate()

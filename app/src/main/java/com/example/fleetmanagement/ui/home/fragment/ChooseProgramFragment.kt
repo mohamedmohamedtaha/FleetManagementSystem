@@ -19,6 +19,7 @@ import com.example.fleetmanagement.ui.home.adapter.TrainingTypeAdapter
 import com.example.fleetmanagement.ui.home.viewmodel.LoginViewModel
 import com.example.fleetmanagement.R
 import com.example.fleetmanagement.databinding.FragmentChooseProgramBinding
+import com.example.fleetmanagement.utils.showSnackBar
 
 class ChooseProgramFragment : BaseFragment(), View.OnClickListener {
     private lateinit var binding: FragmentChooseProgramBinding
@@ -33,56 +34,6 @@ class ChooseProgramFragment : BaseFragment(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         language = dataStoreViewModel.getLanguage().toString()
-        activityVieWModel.programDuration.observe(this) {
-            when (it) {
-                is NetworkResult.Success -> {
-                    hideProgressBar()
-                    if (it.data != null) {
-                        val layoutManager = LinearLayoutManager(requireActivity())
-                        adapterPricingAdapter =
-                            PricingAdapter(object : OnRecycleItemClick<ProgramDuration> {
-                                override fun onClick(t: ProgramDuration, view: View) {
-                                    //TODO("Not yet implemented")
-                                }
-
-                            }, language)
-                        binding.recyclerViewPricing.adapter = adapterPricingAdapter
-                        binding.recyclerViewPricing.layoutManager = layoutManager
-                        adapterPricingAdapter.submitList(it.data)
-                    }
-//                    activityVieWModel.parameters.programDurationCode = ""
-//                    activityVieWModel.getPricing()
-
-                }
-                is NetworkResult.Error -> {
-                    hideProgressBar()
-                    showSnackBar(it.message.toString())
-
-                }
-                is NetworkResult.Loading -> {
-                    showProgressBar()
-                }
-            }
-        }
-        activityVieWModel.pricing.observe(this, {
-            when (it) {
-                is NetworkResult.Success -> {
-                    hideProgressBar()
-                    if (it.data != null) {
-
-                    }
-
-                }
-                is NetworkResult.Error -> {
-                    hideProgressBar()
-                    showSnackBar(it.message.toString())
-
-                }
-                is NetworkResult.Loading -> {
-                    showProgressBar()
-                }
-            }
-        })
     }
 
     override fun onCreateView(
@@ -95,7 +46,6 @@ class ChooseProgramFragment : BaseFragment(), View.OnClickListener {
         binding.buttonNext.setOnClickListener(this)
         hideToolbar()
         binding.activityViewModel = activityVieWModel
-        activityVieWModel.getProgramDuration()
         return binding.root
     }
 
@@ -136,7 +86,7 @@ class ChooseProgramFragment : BaseFragment(), View.OnClickListener {
                                     Log.d("LoginFragment", "if ${t.id} ")
                                     if (t.id == "3" || t.id == "4") {
                                         t.isCheck = false
-                                        showSnackBar("You can't add That item")
+                                        binding.root.showSnackBar("You can't add That item")
                                         return
                                     } else {
                                         trainingTypeIds.add(trainingTypeList[j].id)
@@ -147,7 +97,7 @@ class ChooseProgramFragment : BaseFragment(), View.OnClickListener {
                                         Log.d("LoginFragment", "else if ${t.id}")
                                         if (t.id == "1" || t.id == "2") {
                                             t.isCheck = false
-                                            showSnackBar("You can't add That item")
+                                            binding.root.showSnackBar("You can't add That item")
                                             return
                                         } else {
                                             trainingTypeIds.add(trainingTypeList[j].id)

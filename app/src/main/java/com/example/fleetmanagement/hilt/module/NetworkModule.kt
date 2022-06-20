@@ -37,15 +37,17 @@ class NetworkModule {
         return Interceptor { chain ->
             if (getAccess() != null) {
                 val build = chain.request().newBuilder()
-                    .addHeader(AUTHORIZATION, BEARER + getAccess())
-                    .addHeader(ACCEPT_LANGUAGE, getLanguage() ?: LANGUAGE_ENGLISH).build()
+                 //   .addHeader(AUTHORIZATION, BEARER + getAccess())
+                 //   .addHeader(ACCEPT_LANGUAGE, getLanguage() ?: LANGUAGE_ENGLISH)
+                    .build()
                 chain.proceed(build)
             } else {
                 val build = chain.request().newBuilder()
-                    .addHeader(
-                        ACCEPT_LANGUAGE,
-                        getLanguage() ?: LANGUAGE_ENGLISH
-                    ).build()
+//                    .addHeader(
+//                        ACCEPT_LANGUAGE,
+//                        getLanguage() ?: LANGUAGE_ENGLISH
+//                    ).
+                    .build()
                 chain.proceed(build)
             }
         }

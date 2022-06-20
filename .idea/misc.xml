@@ -5,11 +5,13 @@
       <map>
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/drawable/background_bottom_sheet_dialog.xml" value="0.1875" />
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/drawable/background_edittext.xml" value="0.1875" />
+        <entry key="..\:/Apps/FleetManagement/app/src/main/res/drawable/ic_warning.xml" value="0.2215" />
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/drawable/show_password.xml" value="0.1905" />
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/activity_authintication.xml" value="0.23802083333333332" />
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/activity_base.xml" value="0.23802083333333332" />
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/activity_splash.xml" value="0.14764492753623187" />
+        <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/custom_tasks.xml" value="0.23697916666666666" />
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/custom_toolbar.xml" value="0.4" />
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/fragment_change_password.xml" value="0.23802083333333332" />
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/fragment_choose_program.xml" value="0.23802083333333332" />
@@ -36,6 +38,8 @@
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/row_custom_supplement.xml" value="0.23802083333333332" />
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/row_image_banner.xml" value="0.23802083333333332" />
         <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/row_training_type.xml" value="0.23802083333333332" />
+        <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/snackbar_top.xml" value="0.23697916666666666" />
+        <entry key="..\:/Apps/FleetManagement/app/src/main/res/layout/task_details.xml" value="0.23697916666666666" />
         <entry key="..\:/Apps/SharpFit-master/SharpFit-master/app/src/main/res/drawable/background_button.xml" value="0.188" />
         <entry key="..\:/Apps/SharpFit-master/SharpFit-master/app/src/main/res/drawable/custom_background_snack_bar.xml" value="0.188" />
         <entry key="..\:/Apps/SharpFit-master/SharpFit-master/app/src/main/res/drawable/row_background_type.xml" value="0.188" />

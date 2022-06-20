@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fleetmanagement.base.OnRecycleItemClick
 import com.example.fleetmanagement.data.model.DailyActivities
-import com.example.fleetmanagement.ui.home.adapter.DailyActivitiesAdapter
+import com.example.fleetmanagement.ui.home.adapter.TasksListAdapter
 import com.example.fleetmanagement.databinding.FragmentDailyActivitiesBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -30,17 +30,4 @@ class DailyActivitiesFragment(
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val adapter = DailyActivitiesAdapter(items, object : OnRecycleItemClick<DailyActivities> {
-            override fun onClick(t: DailyActivities, view: View) {
-                position(t)
-                dismiss()
-            }
-        }, language)
-        val layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        binding.recyclerViewDailyActivities.layoutManager = layoutManager
-        binding.recyclerViewDailyActivities.adapter = adapter
-    }
 }

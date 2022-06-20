@@ -13,6 +13,7 @@ import com.example.fleetmanagement.utils.AppUtil
 import com.example.fleetmanagement.utils.ApplicationException
 import com.example.fleetmanagement.R
 import com.example.fleetmanagement.databinding.FragmentCreateAccountBinding
+import com.example.fleetmanagement.utils.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,7 +36,6 @@ class CreateAccountFragment : BaseFragment(), View.OnClickListener {
                 }
                 is NetworkResult.Error -> {
                     hideProgressBar()
-                    showSnackBar(it.message.toString())
                 }
                 is NetworkResult.Loading -> {
                     showProgressBar()
@@ -111,7 +111,7 @@ class CreateAccountFragment : BaseFragment(), View.OnClickListener {
                     .errorMessage(getString(R.string.error_message_password_not_match)).check()
             }
             if (!binding.checkBoxPrivacy.isChecked) {
-                showSnackBar(getString(R.string.error_message_check_box))
+                binding.root.showSnackBar(getString(R.string.error_message_check_box))
                 return
             }
             parameters.name = binding.editTextFullName.text.toString().trim()
@@ -119,7 +119,6 @@ class CreateAccountFragment : BaseFragment(), View.OnClickListener {
             parameters.password1 = binding.editTextPasswordOne.text.toString().trim()
             parameters.password2 = binding.editTextPasswordTwo.text.toString().trim()
             parameters.genderId = genderId.toString()
-            viewModel.createAccount(parameters)
 
         } catch (e: ApplicationException) {
         }

@@ -2,14 +2,15 @@ package com.example.fleetmanagement.data.api
 
 import com.example.fleetmanagement.data.Method
 import com.example.fleetmanagement.data.model.*
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.QueryMap
+import retrofit2.http.*
 
 interface AuthenticationService {
-    @POST(Method.LOGIN)
-    suspend fun login(@Body parameters: Parameters): ResponseBody<Login>
+    //@POST(Method.LOGIN)
+    //@FormUrlEncoded
+    @GET("api")
+    suspend fun login(@Query("Email") username:String, @Query("Password") password:String, @Query("type") type:String): LoginSuccess
+    @GET("api")
+    suspend fun getTasksList(@Query("Email") username:String, @Query("Password") password:String, @Query("type") type:String): List<Task>
 
     @POST(Method.FORGOT_PASSWORD)
     suspend fun forgetPassword(@Body parameters: Parameters): ResponseBody<Any>

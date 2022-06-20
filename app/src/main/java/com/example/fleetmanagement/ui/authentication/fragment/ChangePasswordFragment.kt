@@ -12,6 +12,7 @@ import com.example.fleetmanagement.data.api.NetworkResult
 import com.example.fleetmanagement.utils.ApplicationException
 import com.example.fleetmanagement.utils.TimerInterface
 import com.example.fleetmanagement.databinding.FragmentChangePasswordBinding
+import com.example.fleetmanagement.utils.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,25 +20,6 @@ class ChangePasswordFragment : BaseFragment(), View.OnClickListener, TimerInterf
     private lateinit var binding: FragmentChangePasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.changePassword.observe(this, {
-            when (it) {
-                is NetworkResult.Success -> {
-                    hideProgressBar()
-                    showSnackBar(it.data.toString())
-                    findNavController().navigate(R.id.action_changePasswordFragment_to_mainFragment)
-                }
-
-                is NetworkResult.Error -> {
-                    hideProgressBar()
-                    showSnackBar(it.message.toString())
-
-                }
-                is NetworkResult.Loading -> {
-                    showProgressBar()
-                }
-            }
-        })
-
     }
 
     override fun onCreateView(
@@ -92,7 +74,6 @@ class ChangePasswordFragment : BaseFragment(), View.OnClickListener, TimerInterf
             viewModel.parameters.newPassword1 = binding.editTextPassword.text.toString().trim()
             viewModel.parameters.newPassword2 =
                 binding.editTextConfirmPassword.text.toString().trim()
-            viewModel.changePassword()
         } catch (e: ApplicationException) {
 
         }

@@ -8,16 +8,19 @@ class Parameters @Inject constructor() {
     @SerializedName("username")
     @Expose
     var userName: String? = null
+    @SerializedName("type")
+    @Expose
+    var type: String? = null
 
     @SerializedName("name")
     @Expose
     var name: String? = null
 
-    @SerializedName("password")
+    @SerializedName("Password")
     @Expose
     var password: String? = null
 
-    @SerializedName("email")
+    @SerializedName("Email")
     @Expose
     var email: String? = null
 

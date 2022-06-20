@@ -1,7 +1,6 @@
 package com.example.fleetmanagement.ui.home.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,14 +13,16 @@ import com.example.fleetmanagement.ui.home.activity.MainActivity
 import com.example.fleetmanagement.ui.home.adapter.LoopingBannerAdapter
 import com.example.fleetmanagement.utils.ZoomOutPageTransformer
 import com.example.fleetmanagement.R
+import com.example.fleetmanagement.base.OnRecycleItemClick
+import com.example.fleetmanagement.data.model.Task
 import com.example.fleetmanagement.databinding.FragmentMainBinding
+import com.example.fleetmanagement.ui.home.adapter.TasksListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainFragment : BaseFragment(), View.OnClickListener {
     private lateinit var binding: FragmentMainBinding
     private var bannerList = arrayListOf<Image>()
-
     private val viewPagerChangeCallback = object : ViewPager2.OnPageChangeCallback() {
         var currentIndex = -1
         val runnable = Runnable {
@@ -58,15 +59,17 @@ class MainFragment : BaseFragment(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.login.observe(this) {
+        viewModel.getTasksList.observe(this) {
+            hideProgressBar()
+            val adapter = TasksListAdapter(it as ArrayList<Task>, object :OnRecycleItemClick<Task>{
+                override fun onClick(t: Task, view: View) {
+                   // TODO("Not yet implemented")
+                }
 
-            Log.d(
-                "LoginFragment",
-                "name is: ${it.data?.access} password is: ${dataStoreViewModel.getPassword()}"
-            )
+            })
+            binding.chooseYourProgram.adapter = adapter
 
         }
-
 
     }
 
@@ -107,6 +110,19 @@ class MainFragment : BaseFragment(), View.OnClickListener {
         })
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (dataStoreViewModel.getAccess() != null) {
+            binding.materialCardViewNoData.visibility = View.GONE
+            binding.chooseYourProgram.visibility = View.VISIBLE
+            showProgressBar()
+            viewModel.getTasksList(viewModel.email,viewModel.password,"list")
+        }else{
+            binding.materialCardViewNoData.visibility = View.VISIBLE
+            binding.chooseYourProgram.visibility = View.GONE
+        }
     }
 
     override fun onClick(p0: View?) {

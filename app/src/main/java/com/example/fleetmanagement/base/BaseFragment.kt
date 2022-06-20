@@ -37,15 +37,15 @@ abstract class BaseFragment : Fragment() {
         if (activity is HasToolbar)
             toolbar = activity as HasToolbar
     }
-    fun showSnackBar(message: String) {
-        val contextView = requireActivity().findViewById<View>(R.id.progressBar)
-        val snackBar = Snackbar.make(contextView, message, Snackbar.LENGTH_LONG)
-            .setAction("Ok") {
-                //Responds to click on the action
-            }
-        snackBar.setActionTextColor(ContextCompat.getColor(requireContext(), android.R.color.white))
-        snackBar.show()
-    }
+//    fun showSnackBar(message: String) {
+//        val contextView = requireActivity().findViewById<View>(R.id.progressBar)
+//        val snackBar = Snackbar.make(contextView, message, Snackbar.LENGTH_LONG)
+//            .setAction("Ok") {
+//                //Responds to click on the action
+//            }
+//        snackBar.setActionTextColor(ContextCompat.getColor(requireContext(), android.R.color.white))
+//        snackBar.show()
+//    }
 
     fun showProgressBar() {
         val progressBar = requireActivity().findViewById(R.id.progressBar) as View

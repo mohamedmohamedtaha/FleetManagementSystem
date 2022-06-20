@@ -13,6 +13,7 @@ import com.example.fleetmanagement.utils.Constants.EMAIL
 import com.example.fleetmanagement.utils.TimerInterface
 import com.example.fleetmanagement.R
 import com.example.fleetmanagement.databinding.FragmentResetBinding
+import com.example.fleetmanagement.utils.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,12 +27,12 @@ class ResetFragment : BaseFragment(), View.OnClickListener, TimerInterface {
             when (it) {
                 is NetworkResult.Success -> {
                     hideProgressBar()
-                    showSnackBar(it.data.toString())
+                    binding.root.showSnackBar(it.data.toString())
                     findNavController().navigate(R.id.action_resetFragment_to_loginFragment)
                 }
                 is NetworkResult.Error -> {
                     hideProgressBar()
-                    showSnackBar(it.message.toString())
+                  //  binding.root.showSnackBar(it.message.toString())
                 }
                 is NetworkResult.Loading -> {
                     showProgressBar()
@@ -88,7 +89,6 @@ class ResetFragment : BaseFragment(), View.OnClickListener, TimerInterface {
             viewModel.parameters.OTP = binding.editTextVerificationCode.text.toString().trim()
             viewModel.parameters.newPassword1 = binding.editTextPasswordOne.text.toString().trim()
             viewModel.parameters.newPassword2 = binding.editTextPasswordTwo.text.toString().trim()
-            viewModel.resetPassword()
         } catch (e: ApplicationException) {
 
         }

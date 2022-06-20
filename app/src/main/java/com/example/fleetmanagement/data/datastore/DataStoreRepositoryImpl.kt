@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.fleetmanagement.data.datastore.Session.ACCESS
+import com.example.fleetmanagement.data.datastore.Session.EMAIL
 import com.example.fleetmanagement.data.datastore.Session.LANGUAGE
 import com.example.fleetmanagement.data.datastore.Session.PREFERENCES_NAME
-import com.example.fleetmanagement.data.datastore.Session.REFRESH
+import com.example.fleetmanagement.data.datastore.Session.PASSWORD
 import com.example.fleetmanagement.data.model.Login
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -20,31 +20,31 @@ class DataStoreRepositoryImpl @Inject constructor(private val context: Context) 
     private val Context.dataStore: DataStore<Preferences> by
     preferencesDataStore(name = PREFERENCES_NAME)
 
-    override suspend fun putLogin(login: Login) {
-        val preferencesKeyAccess = stringPreferencesKey(ACCESS)
-        val preferencesKetRefresh = stringPreferencesKey(REFRESH)
+    override suspend fun putLogin(email: String, password: String) {
+        val preferencesKeyAccess = stringPreferencesKey(EMAIL)
+        val preferencesKetRefresh = stringPreferencesKey(PASSWORD)
         context.dataStore.edit { preferences ->
-            preferences[preferencesKeyAccess] = login.access
-            preferences[preferencesKetRefresh] = login.refresh
+            preferences[preferencesKeyAccess] = email
+            preferences[preferencesKetRefresh] = password
         }
     }
 
     override  fun getLogin() = context.dataStore.data.map {
-        val preferencesKeyAccess = stringPreferencesKey(ACCESS)
-        val preferencesKetRefresh = stringPreferencesKey(REFRESH)
+        val preferencesKeyAccess = stringPreferencesKey(EMAIL)
+        val preferencesKetRefresh = stringPreferencesKey(PASSWORD)
         Login(it[preferencesKetRefresh] ?: "", it[preferencesKeyAccess] ?: "")
     }
 
     override suspend fun deleteLogin() = context.dataStore.edit {
-        val preferencesKeyAccess = stringPreferencesKey(ACCESS)
-        val preferencesKetRefresh = stringPreferencesKey(REFRESH)
+        val preferencesKeyAccess = stringPreferencesKey(EMAIL)
+        val preferencesKetRefresh = stringPreferencesKey(PASSWORD)
         Login(it.remove(preferencesKetRefresh), it.remove( preferencesKeyAccess))
     }
 
     override  fun getAccessLoginFlow() =
         context.dataStore.data.map { preferences->
-            val preferencesKe = stringPreferencesKey(ACCESS)
-            val preferencesKey = stringPreferencesKey(REFRESH)
+            val preferencesKe = stringPreferencesKey(EMAIL)
+            val preferencesKey = stringPreferencesKey(PASSWORD)
             preferences[preferencesKey]
             preferences[preferencesKe]
         }
@@ -58,7 +58,7 @@ class DataStoreRepositoryImpl @Inject constructor(private val context: Context) 
 
     override suspend fun getAccess(): String? {
        return try {
-           val preferencesKey = stringPreferencesKey(ACCESS)
+           val preferencesKey = stringPreferencesKey(EMAIL)
            val preferences = context.dataStore.data.first()
            preferences[preferencesKey]
        }catch (e:Exception){

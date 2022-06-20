@@ -36,30 +36,6 @@ class ProfileFragment : BaseFragment(), View.OnClickListener {
 //                }
 //        })
 
-        viewModel.getProfile.observe(this, {
-            when (it) {
-                is NetworkResult.Success -> {
-                    hideProgressBar()
-                    if (it.data != null) {
-                        binding.textViewNameUser.text = it.data.user?.userName
-                        binding.textViewEmailUser.text = it.data.user?.email
-                        imageTransformSupplements(
-                            binding.imageProfileUser,
-                            it.data.profileImage.toString()
-                        )
-                    }
-                }
-                is NetworkResult.Error -> {
-                    hideProgressBar()
-                    //   showSnackBar(it.message.toString())
-
-                }
-                is NetworkResult.Loading -> {
-                    showProgressBar()
-                }
-            }
-        })
-
     }
 
     override fun onCreateView(
@@ -75,7 +51,6 @@ class ProfileFragment : BaseFragment(), View.OnClickListener {
         if (dataStoreViewModel.getAccess() != null) {
             binding.textViewLogIn.visibility = View.GONE
             binding.textViewLogOut.visibility = View.VISIBLE
-            viewModel.getProfile()
         }
         return binding.root
     }

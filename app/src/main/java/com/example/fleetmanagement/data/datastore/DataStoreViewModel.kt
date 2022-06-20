@@ -2,6 +2,7 @@ package com.example.fleetmanagement.data.datastore
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.fleetmanagement.data.datastore.Session.EMAIL
 import com.example.fleetmanagement.data.datastore.Session.NAME
 import com.example.fleetmanagement.data.datastore.Session.PASSWORD
 import com.example.fleetmanagement.data.model.Login
@@ -43,8 +44,11 @@ class DataStoreViewModel @Inject constructor(private val repository: DataStoreRe
 
     fun getValue(): Boolean? = runBlocking { repository.getBoolean("Bool") }
 
-    fun saveLoginData(login: Login) {
-        viewModelScope.launch { repository.putLogin(login) }
+    fun saveLoginData(email: String,password:String) {
+        viewModelScope.launch { repository.putLogin(email,password) }
+    }
+    fun putAccess(email:String){
+        viewModelScope.launch { repository.putAccess(EMAIL,email) }
     }
 
     val accessFlow: Flow<Login?>

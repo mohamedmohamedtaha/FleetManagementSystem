@@ -60,7 +60,6 @@ class SupplementFragment : BaseFragment(), View.OnClickListener {
         // Inflate the layout for this fragment
         binding = FragmentSupplementBinding.inflate(layoutInflater)
         binding.recyclerViewSupplement.setOnClickListener(this)
-        viewModel.getSupplemntCategories()
         hideToolbar()
         return binding.root
     }

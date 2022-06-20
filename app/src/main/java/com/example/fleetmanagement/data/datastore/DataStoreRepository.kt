@@ -5,7 +5,7 @@ import com.example.fleetmanagement.data.model.Login
 import kotlinx.coroutines.flow.Flow
 
 interface DataStoreRepository {
-    suspend fun putLogin(login: Login)
+    suspend fun putLogin(email: String,password:String)
     fun getLogin(): Flow<Login>
     suspend fun deleteLogin(): Preferences
     fun getAccessLoginFlow(): Flow<String?>

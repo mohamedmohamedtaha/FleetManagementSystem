@@ -10,6 +10,7 @@ import com.example.fleetmanagement.data.api.NetworkResult
 import com.example.fleetmanagement.utils.ApplicationException
 import com.example.fleetmanagement.R
 import com.example.fleetmanagement.databinding.FragmentForgetPasswordBinding
+import com.example.fleetmanagement.utils.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,7 +22,7 @@ class ForgetPasswordFragment : BaseFragment(), View.OnClickListener {
             when (it) {
                 is NetworkResult.Success -> {
                     hideProgressBar()
-                    showSnackBar(it.data.toString())
+                    binding.root.showSnackBar(it.data.toString())
                     val action =
                         ForgetPasswordFragmentDirections.actionForgetPasswordFragmentToResetFragment(
                             viewModel.parameters.email.toString()
@@ -30,7 +31,7 @@ class ForgetPasswordFragment : BaseFragment(), View.OnClickListener {
                 }
                 is NetworkResult.Error -> {
                     hideProgressBar()
-                    showSnackBar(it.message.toString())
+                  //  binding.root.showSnackBar(it.message.toString())
                 }
                 is NetworkResult.Loading -> {
                     showProgressBar()
@@ -67,7 +68,6 @@ class ForgetPasswordFragment : BaseFragment(), View.OnClickListener {
                     .errorMessage(getString(R.string.error_message_valid_email)).check()
             }
             viewModel.parameters.email = binding.edieTextEmail.text.toString().trim()
-            viewModel.forgetPassword()
         } catch (e: ApplicationException) {
 
         }

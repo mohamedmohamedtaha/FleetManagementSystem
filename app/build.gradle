@@ -12,10 +12,10 @@ android {
     compileSdk 31
     signingConfigs{
         release{
-            storeFile file('../key.jks')
-            storePassword 'sharp01007'
-            keyPassword 'sharp01007'
-            keyAlias 'sharp_fit'
+            storeFile file('../fleetmanagement.jks')
+            storePassword 'fleet123'
+            keyPassword 'fleet123'
+            keyAlias 'fleetmanagement'
         }
     }
 
@@ -58,8 +58,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha04'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha04'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha07'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha07'
 //For splash Activity API
     implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
     //   glide library

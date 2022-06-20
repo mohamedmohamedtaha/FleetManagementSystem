@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.fleetmanagement.R
 import com.example.fleetmanagement.base.BaseFragment
 import com.example.fleetmanagement.data.api.NetworkResult
-import com.example.fleetmanagement.data.model.Parameters
-import com.example.fleetmanagement.utils.ApplicationException
-import com.example.fleetmanagement.R
 import com.example.fleetmanagement.databinding.FragmentLoginBinding
+import com.example.fleetmanagement.utils.ApplicationException
+import com.example.fleetmanagement.utils.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,13 +22,16 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
             when (it) {
                 is NetworkResult.Success -> {
                     hideProgressBar()
-                    if (it.data != null)
-                        dataStoreViewModel.saveLoginData(it.data)
-                    findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+                    binding.root.showSnackBar(it.data.message.toString())
+                    if (it.data.success == 1){
+//                        dataStoreViewModel.deleteLogin()
+                        dataStoreViewModel.putAccess(viewModel.email)
+                    dataStoreViewModel.saveLoginData(viewModel.email, viewModel.password)
+                    findNavController().navigate(R.id.action_loginFragment_to_mainFragment)}
                 }
                 is NetworkResult.Error -> {
                     hideProgressBar()
-                    showSnackBar(it.message.toString())
+                  //  binding.root.showSnackBar(it..message.toString())
                 }
                 is NetworkResult.Loading -> {
                     showProgressBar()
@@ -95,6 +98,11 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
         }
     }
 
+    private fun getList() {
+        //viewModel.login("list",,)
+
+    }
+
     private fun validateValues() {
         try {
             validator.apply {
@@ -106,10 +114,11 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
                     .errorMessage(getString(R.string.error_message_password))
                     .check()
             }
-            val parameters = Parameters()
-            parameters.userName = binding.editTextEmail.text.toString().trim()
-            parameters.password = binding.editTextPassword.text.toString().trim()
-            viewModel.login(parameters)
+//            val parameters = Parameters()
+//            parameters.type = "login"
+            viewModel.email = binding.editTextEmail.text.toString().trim()
+            viewModel.password = binding.editTextPassword.text.toString().trim()
+            viewModel.login(viewModel.email, viewModel.password,"login")
         } catch (e: ApplicationException) {
             //showSnackBar(e.message)
         }

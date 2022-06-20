@@ -9,5 +9,13 @@ class Login(
     val refresh: String,
     @SerializedName("access")
     @Expose
-    val access: String
+    val access: String)
+
+class LoginSuccess(
+    @SerializedName("success")
+    @Expose
+    val success: Int?,
+    @SerializedName("message")
+    @Expose
+    val message: String? = null
 )

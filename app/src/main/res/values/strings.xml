@@ -94,6 +94,7 @@
     <string name="bmi">BMI</string>
     <string name="ar">ar-SA</string>
     <string name="your_trip">Your Trips</string>
+    <string name="no_data">No data \n must login for show data</string>
 
 
 </resources>

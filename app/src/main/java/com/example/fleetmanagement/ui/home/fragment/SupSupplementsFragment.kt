@@ -65,7 +65,6 @@ class SupSupplementsFragment : BaseFragment() {
             val id = it.getString(ID).toString()
             val params = HashMap<String, String>()
             params[SUPPLEMENT_CATEGORY_ID] = id
-            viewModel.getSupplementById(params)
         }
         return binding.root
     }

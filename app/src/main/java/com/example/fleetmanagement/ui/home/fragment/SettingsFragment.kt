@@ -19,28 +19,13 @@ import com.example.fleetmanagement.utils.Constants.LANGUAGE_ARABIC
 import com.example.fleetmanagement.utils.Constants.LANGUAGE_ENGLISH
 import com.example.fleetmanagement.R
 import com.example.fleetmanagement.databinding.FragmentSettingsBinding
+import com.example.fleetmanagement.utils.showSnackBar
 import java.util.*
 
 class SettingsFragment : BaseFragment(), View.OnClickListener {
     private lateinit var binding: FragmentSettingsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.request.observe(this, {
-            when (it) {
-                is NetworkResult.Success -> {
-                    hideProgressBar()
-                    showSnackBar(it.data.toString())
-                    findNavController().navigate(R.id.action_settingsFragment_to_changePasswordFragment)
-                }
-                is NetworkResult.Error -> {
-                    hideProgressBar()
-                    showSnackBar(it.message.toString())
-                }
-                is NetworkResult.Loading -> {
-                    showProgressBar()
-                }
-            }
-        })
     }
 
     override fun onCreateView(
@@ -58,7 +43,6 @@ class SettingsFragment : BaseFragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when (p0?.id) {
             R.id.textViewChangePassword -> {
-                viewModel.request()
             }
             R.id.textViewChangeLanguage -> {
                 val language = ArrayList<Language>()

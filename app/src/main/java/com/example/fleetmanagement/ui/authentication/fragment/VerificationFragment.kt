@@ -15,6 +15,7 @@ import com.example.fleetmanagement.utils.Constants.EMAIL
 import com.example.fleetmanagement.utils.TimerInterface
 import com.example.fleetmanagement.R
 import com.example.fleetmanagement.databinding.FragmentVerificationBinding
+import com.example.fleetmanagement.utils.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,13 +29,13 @@ class VerificationFragment : BaseFragment(), View.OnClickListener, TimerInterfac
             when (it) {
                 is NetworkResult.Success -> {
                     hideProgressBar()
-                    showSnackBar(it.data.toString())
+                    binding.root.showSnackBar(it.data.toString())
                     startActivity(Intent(requireActivity(), MainActivity::class.java))
                     requireActivity().finish()
                 }
                 is NetworkResult.Error -> {
                     hideProgressBar()
-                    showSnackBar(it.message.toString())
+                   // binding.root.showSnackBar(it.message.toString())
                 }
                 is NetworkResult.Loading -> {
                     showProgressBar()
@@ -74,7 +75,6 @@ class VerificationFragment : BaseFragment(), View.OnClickListener, TimerInterfac
             val parameters = Parameters()
             parameters.email = email
             parameters.OTP = binding.editTextVerificationCode.text.toString().trim()
-            viewModel.verificaitonCode(parameters)
         } catch (e: ApplicationException) {
 
         }
