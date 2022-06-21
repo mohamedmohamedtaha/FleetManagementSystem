@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="@dimen/_10sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivImage"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_150sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCategoryName"
+            style="@style/TextViewStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivImage"
+            tools:text="Category name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvArrived"
+            style="@style/TextViewStyle"
+            android:textColor="@android:color/holo_red_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivImage"
+            tools:text="Arrived " />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDriver_name"
+            style="@style/TextViewStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCategoryName"
+            tools:text="Ahmed Habib " />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCarType"
+            style="@style/TextViewStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCategoryName"
+            tools:text="Honda " />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRoot"
+            android:layout_width="0dp"
+            style="@style/TextViewStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCarType"
+            tools:text="احضار الموظف الجديد الى فرع الشركة الرئيسي " />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvStartKM"
+            style="@style/TextViewStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRoot"
+            tools:text="100000 " />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEndKM"
+            style="@style/TextViewStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRoot"
+            tools:text="100000 " />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDateFrom"
+            style="@style/TextViewStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvStartKM"
+            tools:text="2022-06-14 " />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDateTo"
+            style="@style/TextViewStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvStartKM"
+            tools:text="2022-06-14 " />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

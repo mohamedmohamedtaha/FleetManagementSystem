@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="itemTask"
+            type="com.example.fleetmanagement.data.model.Message" />
+    </data>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10ssp"
+    android:layout_marginEnd="@dimen/_5ssp"
+    android:layout_marginStart="@dimen/_5ssp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="@dimen/_10sdp"
+    android:shadowColor="@color/blue_primary">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/_10ssp"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCategoryName"
+            style="@style/TextViewStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{@string/cat_name + ' ' + itemTask.catName}"
+            tools:text="Category name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvArrived"
+            style="@style/TextViewStyle"
+            android:text="@{itemTask.arrived.equals(String.valueOf(1)) ? @string/arrived : @string/not_arrived }"
+            android:textColor="@{itemTask.arrived.equals(String.valueOf(1)) ? @android:color/black : @android:color/holo_red_dark }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Arrived " />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDriver_name"
+            style="@style/TextViewStyle"
+            android:text="@{@string/driver_name + ' ' + itemTask.driverName}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCategoryName"
+            android:layout_marginTop="@dimen/_10sdp"
+            tools:text="Ahmed Habib " />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCarType"
+            style="@style/TextViewStyle"
+            android:text="@{@string/type_car + ' ' + itemTask.carType}"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvCategoryName"
+            tools:text="Honda " />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+</layout>

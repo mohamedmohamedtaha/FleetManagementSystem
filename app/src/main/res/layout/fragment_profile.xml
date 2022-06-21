@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <ScrollView
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     tools:context=".ui.home.fragment.ProfileFragment">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+ <com.google.android.material.imageview.ShapeableImageView
+     android:id="@+id/imageProfileUser"
+     app:layout_constraintTop_toTopOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     android:layout_marginTop="@dimen/_40sdp"
+     android:layout_gravity="end"
+     android:layout_width="@dimen/_100sdp"
+     android:layout_height="@dimen/_100sdp"
+     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+     android:src="@drawable/ic_user" />
+ <androidx.appcompat.widget.AppCompatTextView
+     android:id="@+id/textViewNameUser"
+     style="@style/zeroAndWrapContent.StyleHeaderTitle"
+     app:layout_constraintTop_toBottomOf="@+id/imageProfileUser"
+     android:gravity="center"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     tools:text="Mohamed Mohamed Taha"/>
+ <androidx.appcompat.widget.AppCompatTextView
+     android:id="@+id/textViewEmailUser"
+     android:gravity="center"
+     style="@style/zeroAndWrapContent.StyleHeaderTitle"
+     app:layout_constraintTop_toBottomOf="@+id/textViewNameUser"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     tools:text="mohamed.taha169@yahoo.com" />
+
+ <androidx.appcompat.widget.AppCompatImageView
+     android:id="@+id/imageViewArrowLeft"
+     style="@style/wrapContent.StyleRightArrow"
+     app:layout_constraintTop_toBottomOf="@+id/textViewEmailUser"
+     app:layout_constraintStart_toStartOf="parent"/>
+ <TextView
+     android:id="@+id/textViewReports"
+     style="@style/wrapContent.StyleTitleText"
+     android:text="@string/reports"
+     app:layout_constraintTop_toTopOf="@+id/imageViewArrowLeft"
+     app:layout_constraintBottom_toBottomOf="@+id/imageViewArrowLeft"
+     app:layout_constraintStart_toEndOf="@+id/imageViewArrowLeft1"/>
+ <androidx.appcompat.widget.AppCompatImageView
+     android:id="@+id/imageViewArrowRight"
+     style="@style/wrapContent.StyleRightArrow"
+     app:layout_constraintTop_toBottomOf="@+id/textViewEmailUser"
+     app:layout_constraintStart_toEndOf="@+id/textViewReports"/>
+
+ <androidx.appcompat.widget.AppCompatImageView
+     android:id="@+id/imageViewArrowLeft1"
+     style="@style/wrapContent.StyleRightArrow"
+     app:layout_constraintTop_toBottomOf="@+id/textViewReports"
+     app:layout_constraintStart_toStartOf="parent"/>
+ <TextView
+     android:id="@+id/textViewSettings"
+     style="@style/wrapContent.StyleTitleText"
+     android:text="@string/settings"
+     app:layout_constraintTop_toTopOf="@+id/imageViewArrowLeft1"
+     app:layout_constraintBottom_toBottomOf="@+id/imageViewArrowLeft1"
+     app:layout_constraintStart_toEndOf="@+id/imageViewArrowLeft1"/>
+ <androidx.appcompat.widget.AppCompatImageView
+     android:id="@+id/imageViewArrowRight1"
+     style="@style/wrapContent.StyleRightArrow"
+     app:layout_constraintTop_toBottomOf="@+id/textViewReports"
+     app:layout_constraintStart_toEndOf="@+id/textViewSettings"/>
+
+ <androidx.appcompat.widget.AppCompatTextView
+     android:id="@+id/textViewSettingsClick"
+     style="@style/zeroAndWrapContent.textView"
+     app:layout_constraintTop_toBottomOf="@+id/textViewSettings"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     android:text="@string/settings" />
+
+ <androidx.appcompat.widget.AppCompatTextView
+     android:id="@+id/textViewLogIn"
+     style="@style/wrapContent.LogInOut"
+     android:text="@string/login"
+     app:layout_constraintTop_toBottomOf="@+id/textViewSettingsClick"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     android:drawableEnd="@drawable/ic_login"
+     />
+
+ <androidx.appcompat.widget.AppCompatTextView
+     android:id="@+id/textViewLogOut"
+     style="@style/wrapContent.LogInOut"
+     app:layout_constraintTop_toBottomOf="@+id/textViewSettingsClick"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     android:text="@string/logout"
+     android:visibility="gone"
+     android:drawableEnd="@drawable/ic_logout"
+    />
+</androidx.constraintlayout.widget.ConstraintLayout>
+ </ScrollView>
