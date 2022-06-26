@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class UserLiveDataSource @Inject constructor(private val authenticationService: AuthenticationService, private val networkHelper: NetworkHelper) :
+class UserLiveDataSource @Inject constructor(private val authenticationService: AuthenticationService) :
     UserRepository, BaseApiResponse() {
     override suspend fun login(
         username: String,

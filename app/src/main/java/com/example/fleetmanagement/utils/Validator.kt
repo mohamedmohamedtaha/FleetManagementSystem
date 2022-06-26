@@ -19,6 +19,13 @@ class Validator @Inject constructor() {
         messageBuilders = ArrayList()
         return this
     }
+
+    fun submit(s: String): Validator {
+        subject = s.trim { it <= ' ' }
+       // editText = s
+        messageBuilders = ArrayList()
+        return this
+    }
     fun submit(checkBox: CheckBox):Validator{
        // checkBox =
         messageBuilders = ArrayList()

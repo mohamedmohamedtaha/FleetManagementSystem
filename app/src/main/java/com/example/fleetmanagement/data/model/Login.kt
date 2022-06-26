@@ -14,8 +14,17 @@ class Login(
 class LoginSuccess(
     @SerializedName("success")
     @Expose
-    val success: Int?,
+    var success: Int?,
     @SerializedName("message")
     @Expose
-    val message: String? = null
+    var message: String? = null
 )
+//class LoginSuccess{
+//    @SerializedName("success")
+//    @Expose
+//    val success: Int? = null
+//    @SerializedName("message")
+//    @Expose
+//    val message: String? = null
+//
+//}
